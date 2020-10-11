@@ -33,6 +33,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding: .5rem;
 	}
 
 	@media (min-width: 640px) {
