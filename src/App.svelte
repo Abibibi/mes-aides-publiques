@@ -1,25 +1,38 @@
 <script>
-	export let name;
+	import { onMount } from 'svelte';
+	import axios from 'axios';
+
+	import Card from './Card.svelte';
+
+	let supportOptions = [];
+
+	let supportError;
+
+	onMount(async () => {
+
+		try {
+			const { data: { aides } } = await axios.get('https://cors-anywhere.herokuapp.com/https://dev.api.mesaidespubliques.fr/Aides/all?page=1&count=50');
+
+			supportOptions = aides;
+		}
+		catch (error) {
+			supportError = error;
+		}
+	});
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#each supportOptions as option}
+		<p>{@html option.description}</p>
+	{/each}
 </main>
 
 <style>
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 
 	@media (min-width: 640px) {
