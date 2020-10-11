@@ -11,8 +11,15 @@
 
 </div>
     <h1>{type}</h1>
+    <div>
+        <img src={picture} alt={title}/>
+    </div>
+    <h2>{title}</h2>
+    <p>{@html description}</p>
+    <button>Vérifier éligibilité</button>
+    <a>En savoir plus</a>
 <style>
-    div {
-        
+    button {
+        display: block;
     }
 </style>
