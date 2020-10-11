@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import truncate from 'lodash.truncate';
 
 	import Card from './Card.svelte';
 
@@ -22,8 +23,13 @@
 </script>
 
 <main>
-	{#each supportOptions as option}
-		<Card { ...option } />
+	{#each supportOptions as { nature, picture, title, description }}
+		<Card
+			type={nature.title}
+			picture={picture}
+			title={title}
+			description={truncate(description, { length: 165, separator: /,?\.* +/})}
+		/>
 	{/each}
 </main>
 
@@ -39,6 +45,26 @@
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
+		}
+	}
+
+	@media only screen and (min-width: 550px) {
+		main {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		main {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	@media only screen and (min-width: 1024px) {
+		main {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
 		}
 	}
 </style>

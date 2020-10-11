@@ -1,10 +1,8 @@
 <script>
-    export let nature;
+    export let type;
     export let picture;
     export let title;
     export let description;
-
-    $: type = nature.title;
 </script>
 
 <div class="card">
@@ -14,8 +12,10 @@
     </div>
     <h2>{title}</h2>
     <div class="card-description">{@html description}</div>
-    <button>Vérifier éligibilité<span /></button>
-    <a>En savoir plus</a>
+    <div class="card-cta">
+        <button>Vérifier éligibilité<span /></button>
+        <a>En savoir plus</a>
+    </div>
 </div>
 
 <style>
@@ -23,13 +23,12 @@
         font-family: 'Mukta Mahee', sans-serif;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
         border: 2px solid #FC9F5B;
         border-radius: .3rem;
         padding: 1rem;
         text-align: center;
-        margin-bottom: 1rem;
+        position: relative;
     }
 
     h1 {
@@ -42,7 +41,10 @@
     }
 
     .card-picture-container {
-        width: 7rem;   
+        width: 5rem;   
+        min-height: 9rem;
+        display: flex;
+        align-items: center;
     }
 
     .card-picture-container, .card-description {
@@ -75,6 +77,10 @@
         font-weight: 500;
     }
 
+    button:hover {
+        background-color: #367db8;
+    }
+
     button, a {
         cursor: pointer;
     }
@@ -82,8 +88,8 @@
     span {
         height: 7px;
         width: 7px;
-        border-right: 1.5px solid rgb(255, 255, 255);
-        border-bottom: 1.5px solid rgb(255, 255, 255);
+        border-right: 1.5px solid #FFFFFF;
+        border-bottom: 1.5px solid #FFFFFF;
         display: inline-block;
         transform: rotate(-45deg);
         margin: 0 .4rem 0 1rem;
@@ -91,8 +97,29 @@
 
     a {
         color: #4195DB;
+        display: block;
     }
 
+    @media only screen and (max-width: 549px) {
+        .card {
+            margin-bottom: 1rem;
+        }
+    }
     
-   
+    @media only screen and (min-width: 550px) {
+        .card {
+            min-height: 28rem;
+        }
+
+        .card-cta {
+            position: absolute;
+            bottom: 1rem;
+        }   
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1300px) {
+        .card {
+            min-height: 32rem;
+        }
+    }
 </style>
