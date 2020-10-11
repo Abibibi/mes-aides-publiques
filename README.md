@@ -19,9 +19,9 @@ Pour démarrer
 - Pour installer les dépendances : `yarn`
 - Pour lancer le serveur de développement : `yarn dev`
 
-Screenshots 
+Desktop & Mobile Screenshots 
 --------------------
 
-![desktop screenshot]()
+- ![desktop screenshot](https://github.com/Abibibi/mes-aides-publiques/blob/main/public/images/MesAidesPubliques_Desktop.png?raw=true)
 
-![mobile screenshot]()
+- ![mobile screenshot](https://github.com/Abibibi/mes-aides-publiques/blob/main/public/images/MesAidesPubliques_Mobile.png?raw=true)
