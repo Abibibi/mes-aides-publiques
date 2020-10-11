@@ -23,7 +23,7 @@
 
 <main>
 	{#each supportOptions as option}
-		<p>{@html option.description}</p>
+		<Card {...option} />
 	{/each}
 </main>
 
